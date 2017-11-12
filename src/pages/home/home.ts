@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
-import {BarcodeData} from '../about/about';
+import {BarcodeData} from '../scan/scan';
 
 @Component({
   selector: 'page-home',

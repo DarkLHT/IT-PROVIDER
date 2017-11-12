@@ -4,10 +4,10 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { HomePage } from '../home/home';
 
 @Component({
-  selector: 'page-about',
-  templateUrl: 'about.html'
+  selector: 'page-scan',
+  templateUrl: 'scan.html'
 })
-export class AboutPage {
+export class ScanPage {
 
   constructor(public navCtrl: NavController, private barcodeScanner: BarcodeScanner) {
 
