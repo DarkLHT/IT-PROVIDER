@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
-import {BarcodeData} from '../scan/scan';
+import {Information} from '../scan/scan';
 
 @IonicPage()
 @Component({
@@ -9,11 +9,12 @@ import {BarcodeData} from '../scan/scan';
 })
 export class HomePage {
 
-  barcodeData: BarcodeData;
+  barcodeInformation: Information;
   articles: any;
+  serialNumber : any;
 
 constructor(public navCtrl: NavController, navParams: NavParams) {
-  this.barcodeData = navParams.get('details');
+  this.barcodeInformation = navParams.get('barcodeInformations');
    this.articles = [
             'Tapis',
             'Matelas',
@@ -21,6 +22,15 @@ constructor(public navCtrl: NavController, navParams: NavParams) {
             'Oreiller',
             'Drap',
         ];
+        this.serialNumber = this.barcodeInformation.serialNumber;
 }
+
+ionViewDidLoad() {
+    
+  }
+
+  getItems() {
+    this.serialNumber = this.barcodeInformation.serialNumber;
+  }
 
 }

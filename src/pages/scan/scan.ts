@@ -26,11 +26,13 @@ export class ScanPage {
       })
   }
 
-
-
-
   scanDetails(details) {
-    this.navCtrl.push(HomePage, {details: details});
+    this.navCtrl.push(ScanPage, {details: details});
+  }
+
+  AddItem(){
+  const barcodeInformations = new Information("ABC" , 2);
+    this.navCtrl.push(HomePage, {barcodeInformations: barcodeInformations});
   }
 
 
@@ -43,4 +45,8 @@ export class BarcodeData {
   ) {
 
   }
+}
+
+export class Information {
+    constructor(public serialNumber: any, public quantity: number) {}
 }
