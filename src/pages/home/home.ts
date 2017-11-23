@@ -1,36 +1,24 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams} from 'ionic-angular';
-import {Information} from '../scan/scan';
+import { ShareService } from '../../services/share/share';
+import { Serializer } from '@angular/compiler/src/i18n/serializers/serializer';
+import {BarcodeData} from '../scan/scan';
 
-@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
 
-  barcodeInformation: Information;
-  articles: any;
+  barcodeInformation: string;
+  articles: Array<BarcodeData>;
   serialNumber : any;
 
-constructor(public navCtrl: NavController, navParams: NavParams) {
-  this.barcodeInformation = navParams.get('barcodeInformations');
-   this.articles = [
-            'Tapis',
-            'Matelas',
-            'Couvre-Lit',
-            'Oreiller',
-            'Drap',
-        ];
-        this.serialNumber = this.barcodeInformation.serialNumber;
+constructor(public navCtrl: NavController, private navParams: NavParams,
+   shareService: ShareService) {
+    this.articles = shareService.barcodeInformations;
 }
 
-ionViewDidLoad() {
-    
-  }
-
-  getItems() {
-    this.serialNumber = this.barcodeInformation.serialNumber;
-  }
-
+ionViewDidEnter() {
+    }
 }

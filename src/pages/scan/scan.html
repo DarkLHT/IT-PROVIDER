@@ -8,30 +8,34 @@
 
 <ion-content padding>
 
-<div class="center-align-content">
-<ion-chip color="primary">
-  <ion-label (click)="click()">Scan</ion-label>
-</ion-chip>
-</div>
-      <ion-list>
-        <ion-item>
-          <ion-label color="primary">Barcode</ion-label>
-          {{ barcodeData?.text }}
-        </ion-item>
-        <ion-item>
-          <ion-label color="primary">Serial Number</ion-label>
-          <ion-input ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label color="primary">Quantity</ion-label>
-          <ion-input type="number" ></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label color="primary">Commentary</ion-label>
-          <ion-input ></ion-input>
-        </ion-item>
-      </ion-list>
+  <div class="center-align-content">
+    <ion-chip color="primary">
+      <ion-label (click)="click()">Scan</ion-label>
+    </ion-chip>
+  </div>
+  <ion-list>
+    <ion-item>
+      <ion-label color="primary">Barcode</ion-label>
+      <ion-input [(ngModel)]="barcode">{{ barcodeData?.text }}</ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Nom</ion-label>
+      <ion-input [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Serial Number</ion-label>
+      <ion-input [(ngModel)]="serialNumber"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Quantity</ion-label>
+      <ion-input type="number" [(ngModel)]="quantite"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">Commentary</ion-label>
+      <ion-input [(ngModel)]="commentaire"></ion-input>
+    </ion-item>
+  </ion-list>
 
-      <button ion-button icon-start>
-  <ion-icon name="add-circle"></ion-icon>Add items</button>
+  <button ion-button icon-start (click)="AddItem()">
+    <ion-icon name="add-circle"></ion-icon>Add items</button>
 </ion-content>

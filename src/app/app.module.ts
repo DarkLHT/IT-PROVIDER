@@ -11,6 +11,9 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { HttpModule } from '@angular/http';
+
+import { ShareService } from '../services/share/share';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
   ],
   imports: [
     BrowserModule,
+    HttpModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
@@ -36,6 +40,7 @@ import { BarcodeScanner } from '@ionic-native/barcode-scanner';
     StatusBar,
     SplashScreen,
     BarcodeScanner,
+    ShareService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

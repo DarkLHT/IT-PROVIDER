@@ -1,23 +1,27 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { HomePage } from '../home/home';
+import { ShareService } from '../../services/share/share';
 
 @Component({
   selector: 'page-scan',
   templateUrl: 'scan.html'
 })
 export class ScanPage {
-
-  constructor(public navCtrl: NavController, private barcodeScanner: BarcodeScanner) {
-
+  barcode: string;
+  serialNumber: string;
+  commentaire: string;
+  quantite: number;
+  name: string;
+  constructor(public navCtrl: NavController, private barcodeScanner: BarcodeScanner,
+     public shareService: ShareService) {
   }
 
   click() {
     this.barcodeScanner.scan()
       .then((result) => {
         if (!result.cancelled) {
-          const barcodeData = new BarcodeData(result.text, result.format);
+          const barcodeData = new BarcodeData(result.text);
           this.scanDetails(barcodeData);
         }
       })
@@ -31,22 +35,24 @@ export class ScanPage {
   }
 
   AddItem(){
-  const barcodeInformations = new Information("ABC" , 2);
-    this.navCtrl.push(HomePage, {barcodeInformations: barcodeInformations});
+    const barcodeData = new BarcodeData(this.barcode, this.serialNumber, this.quantite , this.name);
+    this.shareService.pushBarcodeInformation(barcodeData);
   }
-
-
 }
+
+
 
 export class BarcodeData {
-  constructor(
-    public text: String,
-    public format: String
-  ) {
+  barcode: string;
+  serialNumber: string;
+  quantite: number;
+  name: string;
 
-  }
+  constructor(private Barcode: string, private SerialNumber?: string,
+              private Quantite?: number, private Name?: string) {
+    this.barcode = Barcode;
+    this.serialNumber = SerialNumber;
+    this.quantite = Quantite;
+    this.name = Name;
 }
-
-export class Information {
-    constructor(public serialNumber: any, public quantity: number) {}
 }

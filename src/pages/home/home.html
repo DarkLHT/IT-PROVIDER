@@ -1,16 +1,20 @@
 <ion-header>
   <ion-navbar>
     <ion-title>Items</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="downloadCSV()">
+          <ion-icon name="download"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content class="home">
   <ion-list class="vertical-align-content" reorder="true">
-        <ion-item *ngFor="let article of articles">{{article}}</ion-item>
+        <ion-item *ngFor="let article of articles">
+        <h2>Nom de l'article: {{article?.name}}</h2>
+        <p>Quantité: {{article?.quantite}}</p>
+      </ion-item>
     </ion-list>
-    <ion-item>
-          <ion-label color="primary">Serial Number</ion-label>
-           <ion-input >{{ serialNumber }}</ion-input>
-        </ion-item>
 </ion-content>
