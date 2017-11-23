@@ -11,10 +11,19 @@
 
 
 <ion-content class="home">
-  <ion-list class="vertical-align-content" reorder="true">
-        <ion-item *ngFor="let article of articles">
-        <h2>Nom de l'article: {{article?.name}}</h2>
-        <p>Quantité: {{article?.quantite}}</p>
-      </ion-item>
-    </ion-list>
+  <ion-list class="vertical-align-content">   
+
+      <ion-item-sliding *ngFor="let article of articles">
+        <button ion-item (click)="openItem(item)">         
+          <h2>Nom : {{article?.name}}</h2>
+          <p>Quantité: {{article?.quantite}}</p>
+        </button>
+  
+        <ion-item-options>
+          <button ion-button color="danger" (click)="deleteItem(item)">
+             Delete 
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
+  </ion-list>
 </ion-content>
