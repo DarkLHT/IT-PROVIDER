@@ -2,7 +2,7 @@
   <ion-navbar>
     <ion-title>Items</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="downloadCSV()">
+      <button ion-button icon-only (click)="SaveAsCsv()">
           <ion-icon name="download"></ion-icon>
         </button>
     </ion-buttons>
@@ -11,16 +11,19 @@
 
 
 <ion-content class="home">
+    <div class="noItem" *ngIf="noItem">
+        <h2>No Item Added</h2>
+    </div>
   <ion-list class="vertical-align-content">   
-
       <ion-item-sliding *ngFor="let article of articles">
         <button ion-item (click)="openItem(item)">         
           <h2>Nom : {{article?.name}}</h2>
           <p>Quantité: {{article?.quantite}}</p>
+          <p>Quantité: {{article?.barcode}}</p>
         </button>
   
         <ion-item-options>
-          <button ion-button color="danger" (click)="deleteItem(item)">
+          <button ion-button color="danger" (click)="deleteItem(article)">
              Delete 
           </button>
         </ion-item-options>

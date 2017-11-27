@@ -1,5 +1,21 @@
 page-home {
 
+
+
+.home > *
+{
+    background: #dbebeb;
+}
+
+.noItem > *
+{
+    color: grey;
+    transform: rotate(45deg);
+    vertical-align: middle;
+    text-align: center; 
+    margin: 70px
+}
+
 .vertical-align-content > *
 {
     color: #606060 ;
@@ -7,4 +23,5 @@ page-home {
     font-size: 100%;
     margin: 13px 8px 13px 13px;
 }
+
 }

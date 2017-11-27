@@ -12,8 +12,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { HttpModule } from '@angular/http';
+import { File } from '@ionic-native/file';
 
 import { ShareService } from '../services/share/share';
+
 
 @NgModule({
   declarations: [
@@ -40,6 +42,7 @@ import { ShareService } from '../services/share/share';
     StatusBar,
     SplashScreen,
     BarcodeScanner,
+    File,
     ShareService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
